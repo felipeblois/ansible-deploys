@@ -1,0 +1,24 @@
+---
+# tasks file for new-project
+
+- name: Get namespace
+  command: kubectl get namespace {{ namespace }} -s http://127.0.0.1:55446
+  retries: 10
+  delay: 3
+  register: getNamespace
+  changed_when: no
+  failed_when: no
+
+- name: Create new-project
+  shell: kubectl create namespace {{ namespace }} -s http://127.0.0.1:55446
+  retries: 10
+  delay: 3
+  register: createNamespace
+  until: createNamespace.rc == 0
+  when:
+    - getNamespace.rc > 0
+
+- name: Debug namespace - Show message
+  debug:
+    msg: "{{ createNamespace }}"
+  when: createNamespace is defined

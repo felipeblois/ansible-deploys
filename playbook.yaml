@@ -1,0 +1,11 @@
+- name: Playbook de deploy de pods no minikube
+  hosts: localhost
+  gather_facts: yes
+
+  tasks:
+
+    - name: Carrega a role oc_new-project
+      import_role:
+        name: new-project
+      tags:
+        - deploy
