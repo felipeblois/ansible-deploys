@@ -1,6 +1,14 @@
 ---
 # tasks file for new-project
 
+- name: Get pod
+  command: kubectl get pod -n desenvolvimento -s http://127.0.0.1:55446
+  register: pod
+
+- name: debug pod
+  debug:
+    msg: "{{ pod }}"
+
 - name: Get namespace
   command: kubectl get namespace {{ namespace }} -s http://127.0.0.1:55446
   retries: 10
