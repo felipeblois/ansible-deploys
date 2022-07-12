@@ -28,5 +28,5 @@ preferences: {}
 users:
 - name: minikube
   user:
-    client-certificate: /Users/felipeblois/.minikube/profiles/minikube/client.crt
-    client-key: /Users/felipeblois/.minikube/profiles/minikube/client.key                                                                        
+    client-certificate: /home/jenkins/agent/client.crt
+    client-key: /home/jenkins/agent/client.key                                                                        

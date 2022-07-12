@@ -13,12 +13,23 @@
     dest: ~/.kube/config
     mode: 0600
 
-- name: Aplica CA
+- name: Aplica ca.crt
   template:
     src:  files/ca.crt
     dest: /home/jenkins/agent/ca.crt
     mode: 0600
 
+- name: Aplica client crt
+  template:
+    src:  files/client.crt
+    dest: /home/jenkins/agent/client.crt
+    mode: 0600
+
+- name: Aplica client key
+  template:
+    src:  files/client.key
+    dest: /home/jenkins/agent/client.key
+    mode: 0600
 
 - name: Get pod
   command: kubectl get pod -n desenvolvimento
