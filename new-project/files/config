@@ -29,5 +29,4 @@ users:
 - name: minikube
   user:
     client-certificate: /Users/felipeblois/.minikube/profiles/minikube/client.crt
-    client-key: /Users/felipeblois/.minikube/profiles/minikube/client.key
-~                                                                        
+    client-key: /Users/felipeblois/.minikube/profiles/minikube/client.key                                                                        
