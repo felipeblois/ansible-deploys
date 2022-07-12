@@ -1,6 +1,5 @@
 - name: Playbook de deploy de pods no minikube
-  hosts: localhost
-  gather_facts: yes
+  hosts: 127.0.0.1
 
   tasks:
 
