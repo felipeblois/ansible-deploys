@@ -2,7 +2,7 @@
 # tasks file for new-project
 
 - name: Get pod
-  command: kubectl get pod -n desenvolvimento -s http://127.0.0.1:55446
+  command: kubectl get pod -n desenvolvimento -s http://127.0.0.1:58782
   register: pod
 
 - name: debug pod
@@ -10,7 +10,7 @@
     msg: "{{ pod }}"
 
 - name: Get namespace
-  command: kubectl get namespace {{ namespace }} -s http://127.0.0.1:55446
+  command: kubectl get namespace {{ namespace }} -s http://127.0.0.1:58782
   retries: 10
   delay: 3
   register: getNamespace
@@ -18,7 +18,7 @@
   failed_when: no
 
 - name: Create new-project
-  shell: kubectl create namespace {{ namespace }} -s http://127.0.0.1:55446
+  shell: kubectl create namespace {{ namespace }} -s http://127.0.0.1:58782
   retries: 10
   delay: 3
   register: createNamespace
