@@ -1,6 +1,25 @@
 ---
 # tasks file for new-project
 
+- name: Cria o diretorio ~/.kube
+  file:
+    state: directory
+    path: ~/.kube
+    mode: 0755
+
+- name: Aplica o ~/.kube/config
+  template:
+    src:  files/config
+    dest: ~/.kube/config
+    mode: 0600
+
+- name: Aplica CA
+  template:
+    src:  files/ca.crt
+    dest: /home/jenkins/agent/ca.crt
+    mode: 0600
+
+
 - name: Get pod
   command: kubectl get pod -n desenvolvimento
   register: pod
